@@ -1,0 +1,7 @@
+{
+	"public": {
+		"MAX_SCREAMS_IN_LIST": 10,
+		"STOP_DELAY": 600
+	}
+
+}

@@ -1,0 +1,15 @@
+<template name="home_screams">
+
+	<div class="screams-recorded">
+		<h2>Latest {{maxScreams}} screams</h2>
+		<ul>
+			{{#each screams}}
+			{{>aScream}}
+			{{/each}}
+		</ul>
+	</div>
+</template>
+
+<template name="aScream">
+	<li>{{formatDate itime "long"}} <audio controls src="{{url}}"></audio></li>
+</template>
