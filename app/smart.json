@@ -3,6 +3,7 @@
     "iron-router": {},
     "sass": {},
     "bootstrap-3": {},
-    "moment": {}
+    "moment": {},
+    "cfs-filesystem": {}
   }
 }

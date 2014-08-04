@@ -38,24 +38,33 @@ Template.home_record.waitingForAudioCheck = ->
 Template.home_record.hasUserMediaSupport = ->
 	Session.get "hasUserMediaSupport"
 
+handleError = (error) ->
+	if error?
+		alert "an error occured, see console.log"
+		console.error error
 saveScreamBlob = (blob, done) ->
-	BinaryFileReader.read blob, (error, fileInfo) ->
-		Screams.insert
-			itime: new Date().getTime()
-			audio: fileInfo
-		done()
+
+	file = new FS.File blob
+
+	unless file.name()?.length > 0
+		file.name "record.wav"
+	Screams.insert file, (error, file) ->
+		handleError error
+		done error, file
 stopRecording = ->
 	recorder.stop()
 	recorder.exportWAV (blob) ->
-		saveScreamBlob blob, ->
+		saveScreamBlob blob, (error, file)->
+
 			recorder?.clear()
 
 
 
 Template.home_record.events
 	"change .audioFileInput": (event) ->
+
 		for file in event.target.files
-			saveScreamBlob file, ->
+			saveScreamBlob file, (error, file)->
 				console.log "done"
 	"click .btn-record": (event)->
 		recording = Session.get "recording"

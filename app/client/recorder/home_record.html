@@ -4,33 +4,41 @@
 		<h1>Record</h1>
 
 		{{#if waitingForAudioCheck}}
-			waiting to get audio (click on accept / zulassen above)
+		<p>waiting to get audio (click on accept / zulassen above)</p>
 		{{else}}
-			{{#if hasUserMediaSupport}}
-				<button class="btn-record btn btn-danger btn-lg">
+		{{#if hasUserMediaSupport}}
+		<button class="btn-record btn btn-danger btn-lg">
 
-					<span class="glyphicon {{glyphicon}}"></span> 
-					{{buttonLabel}}
-				</button>
-			{{else}}
-				<p>Your Browser can't record audio directly, but you can upload a file here:</p>
+			<span class="glyphicon {{glyphicon}}"></span> 
+			{{buttonLabel}}
+		</button>
+		<p>Or</p>
 
-					<div class="btn-record-file btn-file btn-danger btn-lg">
+		{{else}}
+		<p>Your Browser can't record audio directly, but you can call a file here:</p>
 
-						<span class="glyphicon {{glyphicon}}"></span> 
-						upload file
-
-						<input class="audioFileInput" type="file" accept="audio/*" capture="microphone">
-					</div>
-				
-
-				
-			<p>Or call <a href="tel:+41263214617">026 321 46 17</a> and scream and shout!</p>
-			{{/if}}
-
-
+		
 		{{/if}}
+		{{/if}}
+
+		{{>home_record_button_upload}}
+
+		<p>Or</p>
+		<p><a class="btn btn-lg btn-warning" href="tel:+41263214617"><span class="glyphicon glyphicon-earphone"></span> 026 321 46 17</a></p>
+
+
+		
 
 	</div>
 
+</template>
+
+<template name="home_record_button_upload">
+	<div class="btn-record-file btn-file btn-danger btn-lg">
+
+		<span class="glyphicon glyphicon glyphicon-cloud-upload"></span> 
+		upload file
+
+		<input class="audioFileInput" type="file" accept="audio/*" capture="microphone">
+	</div>
 </template>
