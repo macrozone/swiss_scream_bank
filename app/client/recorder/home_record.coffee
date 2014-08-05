@@ -11,8 +11,8 @@ initAudio = ->
 	Session.set "hasUserMediaSupport", false
 	Session.set "recording", false
 	#webkit shim
-	window.AudioContext = window.AudioContext || window.webkitAudioContext;
-	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia;
+	window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
+	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
 	window.URL = window.URL || window.webkitURL;
 	audioContext = new AudioContext;
 	
@@ -24,8 +24,9 @@ initAudio = ->
 		recorder = new Recorder input
 		Session.set "waitingForAudioCheck", false
 		Session.set "hasUserMediaSupport", true
-	
+
 	if navigator?.getUserMedia?
+
 		navigator.getUserMedia {audio: true}, onAudioAvailable, onError
 	else 
 		onError()
