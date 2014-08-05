@@ -1,0 +1,11 @@
+<template name="screamList">
+	<ul>
+		{{#each screams}}
+		{{>aScream}}
+		{{/each}}
+	</ul>
+</template>
+
+<template name="aScream">
+	<li>{{formatDate uploadedAt "long"}}, source: {{{source}}} <audio controls src="{{url}}"></audio></li>
+</template>

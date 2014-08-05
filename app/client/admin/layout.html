@@ -1,0 +1,45 @@
+<template name="layout_admin">
+
+{{>header}}
+
+
+
+<div class="container">
+{{#if isInRole 'admin'}}
+{{>yield}}
+{{else}}
+you are no admin
+{{/if}}
+
+
+</div>
+</template>
+
+
+
+<template name="header">
+	<div class="navbar navbar-default" role="navigation">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand curvy" href="/admin"> Admin</a>
+			</div>
+			<div class="collapse navbar-collapse">
+				<ul class="nav navbar-nav">
+					<li><a href="{{pathFor 'admin_screams'}}">Screams</a></li>
+						<li><a href="{{pathFor 'admin_users'}}">Users</a></li>
+					
+				</ul>
+				 <ul class="nav navbar-nav navbar-right">
+				 
+      {{> loginButtons }} <!-- here -->
+    </ul>
+			</div><!-- /.nav-collapse -->
+		</div><!-- /.container -->
+	</div>
+</template>

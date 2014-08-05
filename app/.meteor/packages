@@ -12,3 +12,9 @@ moment
 cfs-filesystem
 collectionFS
 spiderable
+accounts-base
+accounts-password
+roles
+accounts-entry
+accounts-ui-bootstrap-3
+accounts-admin-ui-bootstrap-3

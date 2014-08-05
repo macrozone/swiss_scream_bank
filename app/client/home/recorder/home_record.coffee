@@ -43,9 +43,10 @@ handleError = (error) ->
 	if error?
 		alert "an error occured, see console.log"
 		console.error error
-saveScreamBlob = (blob, done) ->
+saveScreamBlob = (blob, source, done) ->
 
 	file = new FS.File blob
+	file.source = source
 
 	unless file.name()?.length > 0
 		file.name "record.wav"
@@ -55,7 +56,7 @@ saveScreamBlob = (blob, done) ->
 stopRecording = ->
 	recorder.stop()
 	recorder.exportWAV (blob) ->
-		saveScreamBlob blob, (error, file)->
+		saveScreamBlob blob, "record", (error, file)->
 
 			recorder?.clear()
 
@@ -65,7 +66,7 @@ Template.home_record.events
 	"change .audioFileInput": (event) ->
 
 		for file in event.target.files
-			saveScreamBlob file, (error, file)->
+			saveScreamBlob file, "upload", (error, file)->
 				console.log "done"
 	"click .btn-record": (event)->
 		recording = Session.get "recording"

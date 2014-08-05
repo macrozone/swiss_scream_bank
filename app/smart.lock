@@ -6,7 +6,11 @@
       "sass": {},
       "bootstrap-3": {},
       "moment": {},
-      "cfs-filesystem": {}
+      "cfs-filesystem": {},
+      "roles": {},
+      "accounts-entry": {},
+      "accounts-ui-bootstrap-3": {},
+      "accounts-admin-ui-bootstrap-3": {}
     },
     "packages": {
       "iron-router": {
@@ -34,6 +38,26 @@
         "tag": "v0.0.27",
         "commit": "703be2e5f890c84366df39a90a209b7b2c95c967"
       },
+      "roles": {
+        "git": "https://github.com/alanning/meteor-roles.git",
+        "tag": "v1.2.10",
+        "commit": "7ccb35de0a6cb0c9a0c3666badd04757e39c09a6"
+      },
+      "accounts-entry": {
+        "git": "https://github.com/Differential/accounts-entry.git",
+        "tag": "v0.8.0",
+        "commit": "cf7f7d0ecc285824bc2748e305f5d693df99b4ae"
+      },
+      "accounts-ui-bootstrap-3": {
+        "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
+        "tag": "v0.3.3",
+        "commit": "2e50b605d8d5ed68e48c4529a65f13552d8af3f9"
+      },
+      "accounts-admin-ui-bootstrap-3": {
+        "git": "https://github.com/hharnisc/meteor-accounts-admin-ui-bootstrap-3.git",
+        "tag": "v0.2.6",
+        "commit": "fe74692303daf73d440f2729010bcf1557af62ca"
+      },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
         "tag": "v0.2.0",
@@ -43,6 +67,16 @@
         "git": "https://github.com/CollectionFS/Meteor-cfs-storage-adapter.git",
         "tag": "v0.0.30",
         "commit": "ea710e8f407ed44ca7e153d4119fe043504260c9"
+      },
+      "accounts-t9n": {
+        "git": "https://github.com/softwarerero/meteor-accounts-t9n.git",
+        "tag": "v0.0.5",
+        "commit": "ad9539a8818049d5d9fa050d8b2a1f62706483b1"
+      },
+      "simple-form": {
+        "git": "https://github.com/Differential/simple-form.git",
+        "tag": "v0.1.8",
+        "commit": "1ea0d3621b333e6f24f37e0e93efd3c081068716"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
@@ -73,6 +107,11 @@
         "git": "https://github.com/Meteor-Reaction/meteor-emitter.git",
         "tag": "v0.1.0",
         "commit": "849a91bbe4e1e0636f49fa2e5141e74ed5137a27"
+      },
+      "underscore-string-latest": {
+        "git": "https://github.com/TimHeckel/meteor-underscore-string.git",
+        "tag": "v2.3.3",
+        "commit": "4a5d70eee48fbd90a6e6fc78747250d704a0b3bb"
       },
       "cfs-file": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-file.git",
@@ -136,8 +175,8 @@
       },
       "cfs-access-point": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-access-point.git",
-        "tag": "v0.0.33",
-        "commit": "9c0660e42b494ac3c8eb811942fa9fb04c4adec7"
+        "tag": "v0.0.34",
+        "commit": "ba56bde57c5c1cefbbe6314133e99a87b6b29f6e"
       },
       "cfs-gridfs": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-gridfs.git",
