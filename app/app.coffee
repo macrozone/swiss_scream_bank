@@ -1,5 +1,6 @@
+@ScreamStore = new FS.Store.FileSystem "screams", path: "~/screams"
 @Screams = new FS.Collection "screams",
-	stores: [new FS.Store.FileSystem "screams", path: "~/screams"]
+	stores: [ScreamStore]
 	filter:
 		allow: 
 			contentTypes: ['audio/*']

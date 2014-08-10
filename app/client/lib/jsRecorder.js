@@ -2,7 +2,7 @@
 
   var WORKER_PATH = 'recorderWorker.js';
 
-  var Recorder = function(source, cfg){
+  var JsRecorder = function(source, cfg){
     var config = cfg || {};
     var bufferLen = config.bufferLen || 4096;
     this.context = source.context;
@@ -74,7 +74,7 @@
     this.node.connect(this.context.destination);    //this should not be necessary
   };
 
-  Recorder.forceDownload = function(blob, filename){
+  JsRecorder.forceDownload = function(blob, filename){
     var url = (window.URL || window.webkitURL).createObjectURL(blob);
     var link = window.document.createElement('a');
     link.href = url;
@@ -84,6 +84,6 @@
     link.dispatchEvent(click);
   }
 
-  window.Recorder = Recorder;
+  window.JsRecorder = JsRecorder;
 
 })(window);

@@ -1,24 +1,27 @@
 <template name="home_record">
 
 	<div id="record">
+	<div id="getUserMediaShim"></div>
 		<h1>Record</h1>
+		<div id="flashWami"></div>
 
 		{{#if waitingForAudioCheck}}
-		<p>waiting to get audio (click on accept / zulassen above)</p>
+			<p>waiting to get audio (click on accept / zulassen above)</p>
 		{{else}}
-		{{#if hasUserMediaSupport}}
-		<button class="btn-record btn btn-danger btn-lg">
+			{{#if hasUserMediaSupport}}
 
-			<span class="glyphicon {{glyphicon}}"></span> 
-			{{buttonLabel}}
-		</button>
-		<p>Or</p>
+			<button class="btn-record btn btn-danger btn-lg">
 
-		{{else}}
-		<p>Your Browser can't record audio directly, but you can call a file here:</p>
+				<span class="glyphicon {{glyphicon}}"></span> 
+				{{buttonLabel}}
+			</button>
+			<p>Or</p>
 
-		
-		{{/if}}
+			{{else}}
+				<p>Your Browser can't record audio directly, but you can upload a file here:</p>
+
+			
+			{{/if}}
 		{{/if}}
 
 		{{>home_record_button_upload}}
