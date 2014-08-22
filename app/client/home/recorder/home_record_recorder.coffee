@@ -41,7 +41,7 @@ Template.home_record_recorder.rendered = ->
 		Session.set "hasUserMediaSupport", true
 		Session.set "recorder", "js"
 
-	if navigator?.getUserMedia?
+	if false && navigator?.getUserMedia?
 
 		navigator.getUserMedia {audio: true}, onAudioAvailable, onError
 	else 
@@ -81,22 +81,9 @@ startRecording = ->
 startRecordingJs = ->
 	jsRecorder.record()
 startRecordingFlash = ->
-
-	onStart = null
+	clientID = Session.get "clientID"
+	Wami.startRecording "/api/record/"+clientID
 	
-	onFinished = Wami.nameCallback ->
-
-		console.log "finished"
-		console.log arguments
-	onError = Wami.nameCallback ->
-		console.log "error"
-		console.log arguments
-	# this is a little bit hacky
-	
-
-	Wami.startRecording "/api/record/"+screamID, onStart, onFinished, onError
-	Session.set "screamAttempID", screamID
-
 stopRecording = ->
 	switch Session.get "recorder"
 		when "js" then stopRecordingJs()
@@ -104,16 +91,14 @@ stopRecording = ->
 
 stopRecordingFlash = ->
 	Wami.stopRecording()
-	
-	alert Session.get "screamAttempID"
 
 stopRecordingJs = ->
 
 	jsRecorder.stop()
 	jsRecorder.exportWAV (blob) ->
 		saveScreamBlob blob, "record", (error, file)->
-			console.log error, file
-			jsRecorder?.clear()
+			unless error?
+				jsRecorder?.clear()
 
 
 

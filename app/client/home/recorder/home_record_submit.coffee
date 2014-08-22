@@ -3,20 +3,19 @@
 Template.home_record_submit.screamAttemps = ->
 	ScreamFiles.find clientID: Session.get "clientID"
 
-
 Template.home_record_submit_oneScream.events
 		"click": (event, template) ->
 			template.$ "input"
 			.prop "checked", true
 
-
 Template.home_record_submit.events
-
 
 	"click .btn-submit": (event, template)->
 		selectedFileID = template.$("input[name='selection']:checked").val()
-		message = template.$("textarea").val()
-		email = template.$("[name='email']").val()
+		$message = template.$ "textarea" 
+		$email = template.$ "[name='email']"
+		message = $message.val()
+		email = $email.val()
 		
 		unless selectedFileID
 			alert "please chose one of your screams"
@@ -31,7 +30,8 @@ Template.home_record_submit.events
 		ScreamFiles.update {_id: file._id}, {$set: {clientID: null}}, null,  (error, result) ->
 			
 			unless error?
-
+				$message.val ""
+				$email.val ""
 				Meteor.call "removeTempFiles", Session.get "clientID"
 				Screams.insert
 					file: file

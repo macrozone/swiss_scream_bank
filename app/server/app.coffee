@@ -74,9 +74,10 @@ Meteor.startup ->
 
 	Router.map ->
 		@route "api-record", 
-			path: '/api/record'
+			path: '/api/record/:clientID'
 			where: "server"
 			action: ->
+				clientID = @params.clientID
 				payload = []
 				@request.on 'data', (data) =>
 					payload.push data
@@ -90,6 +91,7 @@ Meteor.startup ->
 					file.attachData buffer, {type: "audio/wav"}, =>
 						file.source = "record"
 						file.name "record.wav"
+						file.clientID = clientID
 						result = ScreamFiles.insert file
 						
 						@response.writeHead 200, {'Content-Type': 'application/json'}
