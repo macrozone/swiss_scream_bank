@@ -10,7 +10,8 @@
       "roles": {},
       "accounts-entry": {},
       "accounts-ui-bootstrap-3": {},
-      "accounts-admin-ui-bootstrap-3": {}
+      "accounts-admin-ui-bootstrap-3": {},
+      "smart-publish": {}
     },
     "packages": {
       "iron-router": {
@@ -30,8 +31,8 @@
       },
       "moment": {
         "git": "https://github.com/acreeger/meteor-moment.git",
-        "tag": "v2.6.0",
-        "commit": "26156df681750fd6e6ed77043eef32b6653ebbdf"
+        "tag": "v2.8.1",
+        "commit": "722ea63783d594341023836b7d418ab2567dab8c"
       },
       "cfs-filesystem": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-filesystem.git",
@@ -40,23 +41,28 @@
       },
       "roles": {
         "git": "https://github.com/alanning/meteor-roles.git",
-        "tag": "v1.2.10",
-        "commit": "7ccb35de0a6cb0c9a0c3666badd04757e39c09a6"
+        "tag": "v1.2.11",
+        "commit": "2d7dc91848ec874d3a0852c77f462d0fae749de5"
       },
       "accounts-entry": {
         "git": "https://github.com/Differential/accounts-entry.git",
-        "tag": "v0.8.0",
-        "commit": "cf7f7d0ecc285824bc2748e305f5d693df99b4ae"
+        "tag": "v0.8.1",
+        "commit": "3102c0641cab394ce4c3e54b655c85ec1610c092"
       },
       "accounts-ui-bootstrap-3": {
         "git": "https://github.com/mangasocial/meteor-accounts-ui-bootstrap-3.git",
-        "tag": "v0.3.3",
-        "commit": "2e50b605d8d5ed68e48c4529a65f13552d8af3f9"
+        "tag": "v0.3.5",
+        "commit": "bbd0a8a46ae02526c2ebfee05fa8075d8d04a9ba"
       },
       "accounts-admin-ui-bootstrap-3": {
         "git": "https://github.com/hharnisc/meteor-accounts-admin-ui-bootstrap-3.git",
         "tag": "v0.2.6",
         "commit": "fe74692303daf73d440f2729010bcf1557af62ca"
+      },
+      "smart-publish": {
+        "git": "https://github.com/yeputons/meteor-smart-publish.git",
+        "tag": "v0.1.4",
+        "commit": "9b0279927fa4f8042f8f56ba475ce9737ceaa8cf"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",
@@ -175,8 +181,8 @@
       },
       "cfs-access-point": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-access-point.git",
-        "tag": "v0.0.34",
-        "commit": "ba56bde57c5c1cefbbe6314133e99a87b6b29f6e"
+        "tag": "v0.0.36",
+        "commit": "faf45b12b0e68a8e95d040898c4dbca32c3b515a"
       },
       "cfs-gridfs": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-gridfs.git",
@@ -210,8 +216,8 @@
       },
       "cfs-worker": {
         "git": "https://github.com/CollectionFS/Meteor-cfs-worker.git",
-        "tag": "v0.0.16",
-        "commit": "172abbf679a9c9ce65d5cac7b51f23967aff94f7"
+        "tag": "v0.0.17",
+        "commit": "654fa7c552f558a293429da790b016af6f1c4fc3"
       }
     }
   }

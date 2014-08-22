@@ -1,6 +1,7 @@
 
 
 Template.aScream.source = ->
+	
 
 	switch @source
 		when 'upload' then '<span class="glyphicon glyphicon-cloud-upload"></span> '+ @source

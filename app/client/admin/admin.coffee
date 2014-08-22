@@ -6,14 +6,17 @@ Router.map ->
 		layoutTemplate: "layout_admin"
 		
 		onBeforeAction: ->
-			AccountsEntry.signInRequired @
+			unless Roles.userIsInRole Meteor.userId(), ['admin']
+				@redirect '/sign-in'
+			
 		
 	@route 'admin_users', 
 		path: "/admin/users"
 		layoutTemplate: "layout_admin"
 		template: "accountsAdmin"
 		onBeforeAction: ->
-			AccountsEntry.signInRequired @
+			unless Roles.userIsInRole Meteor.userId(), ['admin']
+				@redirect '/sign-in'
 
 
 	@route 'admin_screams',
@@ -21,7 +24,8 @@ Router.map ->
 		layoutTemplate: "layout_admin"
 		waitOn: -> Meteor.subscribe "allScreams"
 		onBeforeAction: ->
-			AccountsEntry.signInRequired @
+			unless Roles.userIsInRole Meteor.userId(), ['admin']
+				@redirect '/sign-in'
 		data: ->
 			
 			screams: Screams.find {}, 

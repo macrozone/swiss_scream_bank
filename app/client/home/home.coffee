@@ -6,15 +6,15 @@ Router.map ->
 		waitOn: -> Meteor.subscribe "latestScreams"
 		data: ->
 			navigation: [
-				(link: "#explication", label: "SBB")
-				(link: "#record", label: "RECORD!")
-				(link: "#fonctionement", label: "HOW?")
-				(link: "#communaute", label: "LISTEN")
-				(link: "#contact", label: "CONTACT")
+				(link: "#rec", label: "REC")
+				(link: "#what", label: "WHAT")
+				
+				(link: "#infos", label: "INFOS")
+				(link: "#partners", label: "PARTNERS")
 			]
 
 			screams: Screams.find {}, 
-				sort: uploadedAt: -1
+				sort: itime: -1
 				limit: MAX_SCREAMS_IN_LIST
 			maxScreams: MAX_SCREAMS_IN_LIST
 

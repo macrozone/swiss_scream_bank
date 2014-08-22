@@ -10,28 +10,62 @@ Meteor.startup ->
 	AccountsEntry.config
 		signupCode: 'd79EH24B'
 
-	Meteor.publish "latestScreams", ->
+	getFilesForScreams = (cursor) ->
+		ScreamFiles.find {}
 
-		Screams.find {}, 
-			sort: uploadedAt: -1
+	Meteor.smartPublish "latestScreams", ->
+
+		screams = Screams.find {}, 
+			sort: itime: -1
 			limit: MAX_SCREAMS_IN_LIST
 
-	Meteor.publish "allScreams", ->
+		files = getFilesForScreams screams
+
+		[screams, files]
+
+	Meteor.smartPublish "allScreams", ->
 		unless isAdmin @userId
 			throw new Meteor.Error 403
-		Screams.find {}, sort: uploadedAt: -1
+		screams = Screams.find {}, sort: uploadedAt: -1
+		files = getFilesForScreams screams
 
-	console.log ScreamStore
+		[screams, files]
+
+
+	update =->
+			true
+	insert = ->
+			true
+	remove = (userID, doc) ->
+			 if isAdmin userID
+			 	return true
+			 console.log doc
+			 return false
+
 
 	Screams.allow
-		update: ->
-			true
-		insert: ->
-			true
+		update: update
+		insert: insert
+		remove: remove
+	Screams.deny
+		# little hack to add itime
+		insert: (userId, doc) -> 
+			doc.itime = new Date().valueOf()
+			false
+
+
+	ScreamFiles.allow
+		update: update
+		insert: insert
+		remove: remove
 		download: (userID, file) ->
 			true
-		remove: (userID, doc) ->
-			 isAdmin userID
+		
+
+	Meteor.methods
+		removeTempFiles: (clientID) ->
+			ScreamFiles.remove clientID: clientID
+
 
 	request = Npm.require("request");
 
@@ -44,16 +78,20 @@ Meteor.startup ->
 			where: "server"
 			action: ->
 				payload = []
-				@request.on 'data', (data) ->
+				@request.on 'data', (data) =>
 					payload.push data
-				@request.on 'end', Meteor.bindEnvironment ->
+				@request.on 'end', Meteor.bindEnvironment =>
 					buffer = new Buffer(payload.reduce (prev, current) ->
             			return prev.concat(Array.prototype.slice.call(current))
         			, [])
 					
 					file = new FS.File()
-
-					file.attachData buffer, {type: "audio/wav"}, ->
+				
+					file.attachData buffer, {type: "audio/wav"}, =>
 						file.source = "record"
 						file.name "record.wav"
-						Screams.insert file
+						result = ScreamFiles.insert file
+						
+						@response.writeHead 200, {'Content-Type': 'application/json'}
+						@response.end('hello from server');
+

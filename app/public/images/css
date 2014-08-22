@@ -1,6 +1,0 @@
-@font-face {
-  font-family: 'ABeeZee';
-  font-style: normal;
-  font-weight: 400;
-  src: local('ABeeZee'), local('ABeeZee-Regular'), url(http://fonts.gstatic.com/s/abeezee/v3/yTibYMDoFfqshd01j2jrvwLUuEpTyoUstqEm5AMlJo4.woff2) format('woff2'), url(http://fonts.gstatic.com/s/abeezee/v3/zhbx7NQl8ktGP8FS60Z_oQLUuEpTyoUstqEm5AMlJo4.woff) format('woff');
-}

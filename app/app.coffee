@@ -1,10 +1,11 @@
 @ScreamStore = new FS.Store.FileSystem "screams", path: "~/screams"
-@Screams = new FS.Collection "screams",
+@ScreamFiles = new FS.Collection "screamFiles",
 	stores: [ScreamStore]
 	filter:
 		allow: 
 			contentTypes: ['audio/*']
 
+@Screams = new Meteor.Collection "screams"
 
 if Meteor.isClient
 	Meteor.startup ->

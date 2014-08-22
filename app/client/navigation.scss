@@ -1,0 +1,47 @@
+/*////////////////// Navigation ////////////////////////////*/
+@media screen and (max-width : 1024px)
+{
+  #nav
+  {
+    display: none;
+  }
+} 
+
+
+#nav {
+
+
+  right: 20px;
+  list-style: none;
+  position: fixed;
+  z-index: 500;
+
+
+  li {
+    margin-bottom: 2px;
+  }
+
+  a {
+    background: transparent;
+    color: #3a3a3a;
+    font-size: 15px;
+    font-family: 'Verdana';
+    display: block;
+    font-size: 14px;
+    padding: 5px 5px;
+    margin: 5px;
+    border: 2px solid #fff;
+    text-decoration: none;
+    text-transform: uppercase;
+    text-align:center;
+  }
+
+  a:hover {
+    background: #fff;
+  }
+
+  .current a {
+    background: #fff;
+    color: #e7e7e7;
+  }
+}
