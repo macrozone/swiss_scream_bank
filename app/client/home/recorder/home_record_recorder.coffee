@@ -6,7 +6,6 @@ Session.set "waitingForAudioCheck", true
 Session.set "hasUserMediaSupport", false
 
 
-
 tryFlashAudio = ->
 
 	Wami.setup
@@ -22,6 +21,7 @@ Template.home_record_recorder.rendered = ->
 	Session.set "waitingForAudioCheck", true
 	Session.set "hasUserMediaSupport", false
 	Session.set "recording", false
+	Session.set "recorder", null
 	#webkit shim
 	window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
@@ -41,12 +41,10 @@ Template.home_record_recorder.rendered = ->
 		Session.set "hasUserMediaSupport", true
 		Session.set "recorder", "js"
 
-	if false && navigator?.getUserMedia?
-
+	if navigator?.getUserMedia?
 		navigator.getUserMedia {audio: true}, onAudioAvailable, onError
 	else 
 		onError()
-
 
 
 Template.home_record_recorder.waitingForAudioCheck = ->
@@ -80,6 +78,7 @@ startRecording = ->
 	
 startRecordingJs = ->
 	jsRecorder.record()
+
 startRecordingFlash = ->
 	clientID = Session.get "clientID"
 	Wami.startRecording "/api/record/"+clientID
@@ -100,14 +99,12 @@ stopRecordingJs = ->
 			unless error?
 				jsRecorder?.clear()
 
-
-
 Template.home_record_recorder.events
 	"change .audioFileInput": (event) ->
-
 		for file in event.target.files
 			saveScreamBlob file, "upload", (error, file)->
 				console.log "done"
+				
 	"click .btn-record": (event)->
 		recording = Session.get "recording"
 		Session.set "recording", !recording
