@@ -1,9 +1,13 @@
 <template name="admin">
+{{#if isInRole 'admin'}}
 <h1>Admin</h1>
 <ul>
 <li><a href="{{pathFor 'admin_screams'}}">Screams</a></li>
 
 <li><a href="{{pathFor 'admin_users'}}">Users</a></li>
 </ul>
+{{else}}
+<p>you aren't an admin</p>
+{{/if}}
 
 </template>

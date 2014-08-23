@@ -6,7 +6,7 @@ Router.map ->
 		layoutTemplate: "layout_admin"
 		
 		onBeforeAction: ->
-			unless Roles.userIsInRole Meteor.userId(), ['admin']
+			unless Meteor.userId()?
 				@redirect '/sign-in'
 			
 		
@@ -15,7 +15,7 @@ Router.map ->
 		layoutTemplate: "layout_admin"
 		template: "accountsAdmin"
 		onBeforeAction: ->
-			unless Roles.userIsInRole Meteor.userId(), ['admin']
+			unless Meteor.userId()?
 				@redirect '/sign-in'
 
 
@@ -24,7 +24,7 @@ Router.map ->
 		layoutTemplate: "layout_admin"
 		waitOn: -> Meteor.subscribe "allScreams"
 		onBeforeAction: ->
-			unless Roles.userIsInRole Meteor.userId(), ['admin']
+			unless Meteor.userId()?
 				@redirect '/sign-in'
 		data: ->
 			
