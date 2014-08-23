@@ -11,7 +11,8 @@
       "accounts-ui-bootstrap-3": {},
       "accounts-admin-ui-bootstrap-3": {},
       "smart-publish": {},
-      "scss": {}
+      "scss": {},
+      "persistent-session": {}
     },
     "packages": {
       "iron-router": {
@@ -63,6 +64,11 @@
         "git": "https://github.com/fourseven/meteor-scss.git",
         "tag": "v0.9.3",
         "commit": "185f3b2787fb85e653f7b7bf603d1493ed14943d"
+      },
+      "persistent-session": {
+        "git": "https://github.com/okgrow/meteor-persistent-session.git",
+        "tag": "v0.1.4",
+        "commit": "38c104fe4f9af24d16047d344af44e38e0a9e7a9"
       },
       "iron-layout": {
         "git": "https://github.com/EventedMind/iron-layout.git",

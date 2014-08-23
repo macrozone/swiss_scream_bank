@@ -9,6 +9,7 @@
     "accounts-ui-bootstrap-3": {},
     "accounts-admin-ui-bootstrap-3": {},
     "smart-publish": {},
-    "scss": {}
+    "scss": {},
+    "persistent-session": {}
   }
 }
