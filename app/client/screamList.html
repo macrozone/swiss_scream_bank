@@ -1,5 +1,5 @@
 <template name="screamList">
-	<ul>
+	<ul class="screamList">
 		{{#each screams}}
 		{{>aScream}}
 		{{/each}}
@@ -7,5 +7,5 @@
 </template>
 
 <template name="aScream">
-	<li>{{formatDate itime "long"}}, source: {{{source}}} <audio controls src="{{file.url}}"></audio></li>
+	<li class="col-sm-6">{{formatDate itime "long"}}, source: {{{source}}} <audio controls src="{{file.url}}"></audio></li>
 </template>

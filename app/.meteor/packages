@@ -6,7 +6,6 @@
 standard-app-packages
 iron-router
 coffeescript
-sass
 bootstrap-3
 moment
 cfs-filesystem
@@ -20,3 +19,4 @@ accounts-ui-bootstrap-3
 accounts-admin-ui-bootstrap-3
 cfs-ejson-file
 smart-publish
+scss

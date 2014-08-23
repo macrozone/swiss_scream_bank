@@ -2,16 +2,17 @@
 <template name="home_record_recorder">
 	<div id="flashWami"></div>
 	{{#if waitingForAudioCheck}}
-	<p>waiting to get audio (click on accept / zulassen above)</p>
+	<p class="waiting">Waiting for audio... (please click on accept / zulassen above)</p>
+	{{>waitingAnimation}}
 	{{else}}
 	{{#if hasUserMediaSupport}}
 
-	<button class="btn-record btn btn-danger btn-lg">
+	<button class="btn-record btn btn-lg">
 
 		<span class="glyphicon {{glyphicon}}"></span> 
 		{{buttonLabel}}
 	</button>
-	<p>Or</p>
+	<p class="or"><span>Or</span></p>
 
 	{{else}}
 	<p>Your Browser can't record audio directly, but you can upload a file here:</p>
@@ -22,14 +23,14 @@
 
 	{{>home_record_button_upload}}
 
-	<p>Or</p>
-	<p><a class="btn btn-lg btn-warning" href="tel:+41263214617"><span class="glyphicon glyphicon-earphone"></span> 026 321 46 17</a></p>
+	<p class="or"><span>Or</span></p>
+	<p><a class="btn btn-lg" href="tel:+41263214617"><span class="glyphicon glyphicon-earphone"></span> +41263214617</a></p>
 </template>
 
 
 
 <template name="home_record_button_upload">
-	<div class="btn-record-file btn-file btn-danger btn-lg">
+	<div class="btn btn-record-file btn-file btn-lg">
 
 		<span class="glyphicon glyphicon glyphicon-cloud-upload"></span> 
 		upload file

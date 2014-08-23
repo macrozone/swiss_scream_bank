@@ -32,11 +32,23 @@ Template.home_record_submit.events
 			unless error?
 				$message.val ""
 				$email.val ""
-				Meteor.call "removeTempFiles", Session.get "clientID"
+				#Meteor.call "removeTempFiles", Session.get "clientID"
 				Screams.insert
 					file: file
 					message: message
 					email: email
 					source: file.source
+
+				$container = template.$ ".home_record_submit"
+				.addClass "showThankYou"
+
+				Meteor.setTimeout ->
+					$container.removeClass "showThankYou"
+				,3600
+
+		
+		return false;
+
+
 
 		
