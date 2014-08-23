@@ -1,4 +1,18 @@
 <template name="admin_screams">
 <h1>All Screams</h1>
-{{>screamList}}
+
+	<ul class="screamList">
+		{{#each screams}}
+		{{>admin_aScream}}
+		{{/each}}
+	</ul>
+</template>
+
+<template name="admin_aScream">
+	<li class="col-sm-6">{{formatDate itime "long"}}<br/>
+	source: {{{source}}}<br/>
+	message: {{message}}<br />
+	email: {{email}}<br/>
+	<audio controls src="{{file.url}}"></audio></li>
+</template>
 </template>
