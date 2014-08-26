@@ -21,30 +21,36 @@ Template.home_record_recorder.rendered = ->
 	Session.setTemporary "waitingForAudioCheck", true
 	Session.setTemporary "hasUserMediaSupport", false
 	Session.setTemporary "recording", false
-	Session.setTemporary "recorder", null
+	Session.setTemporary "recorder", ""
+	
 	#webkit shim
 	window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
 	navigator.getUserMedia = navigator.getUserMedia || navigator.webkitGetUserMedia || navigator.mozGetUserMedia;
-	window.URL = window.URL || window.webkitURL;
+	window.URL = window.URL || window.webkitURL || window.mozURL;
 	audioContext = new AudioContext;
 	
 	onError = (error) ->
-		
+		Session.setTemporary "waitingForAudioCheck", false
 		Session.setTemporary "hasUserMediaSupport", false
-		tryFlashAudio()
+		
 	onAudioAvailable = (stream) ->
+		#by set the stream as global variable 
+		#will stop firefox cut the recording..., see https://github.com/mattdiamond/Recorderjs/issues/49
+		window.__FIREFOX_HACK_RECORDER_JS__ = stream
 		input = audioContext.createMediaStreamSource stream
 		jsRecorder = new JsRecorder input, 
 			bufferLen: 4096 # default 4096
 			#sampleRate: 2000
+
 		Session.setTemporary "waitingForAudioCheck", false
 		Session.setTemporary "hasUserMediaSupport", true
 		Session.setTemporary "recorder", "js"
 
 	if navigator?.getUserMedia?
+
 		navigator.getUserMedia {audio: true}, onAudioAvailable, onError
 	else 
-		onError()
+		tryFlashAudio()
 
 
 Template.home_record_recorder.waitingForAudioCheck = ->
@@ -56,7 +62,7 @@ Template.home_record_recorder.hasUserMediaSupport = ->
 handleError = (error) ->
 	if error?
 		alert "an error occured, see console.log"
-		console.error error
+		
 saveScreamBlob = (blob, source, done) ->
 
 	file = new FS.File blob
@@ -72,11 +78,13 @@ saveScreamBlob = (blob, source, done) ->
 
 
 startRecording = ->
+	
 	switch Session.get "recorder"
 		when "js" then startRecordingJs()
 		when "flash" then startRecordingFlash()
 	
 startRecordingJs = ->
+
 	jsRecorder.record()
 
 startRecordingFlash = ->

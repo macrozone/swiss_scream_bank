@@ -1,8 +1,10 @@
 
 <template name="home_record_recorder">
-	<div id="flashWami"></div>
+	<div id="flashWami" class="{{#if waitingForAudioCheck}}waiting{{/if}}"></div>
 	{{#if waitingForAudioCheck}}
+	
 	<p class="waiting">Waiting for audio... <br/>(please click on accept / zulassen above)</p>
+	
 	{{>waitingAnimation}}
 	{{else}}
 	{{#if hasUserMediaSupport}}
@@ -15,7 +17,7 @@
 	<p class="or"><span>Or</span></p>
 
 	{{else}}
-	<p>Your Browser can't record audio directly, but you can upload a file here:</p>
+	<p>Your Browser can't record audio directly or you denied access to the microphone, but you can upload a file here:</p>
 
 
 	{{/if}}

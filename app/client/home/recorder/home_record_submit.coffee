@@ -4,9 +4,13 @@ Template.home_record_submit.screamAttemps = ->
 	ScreamFiles.find clientID: Session.get "clientID"
 
 Template.home_record_submit_oneScream.events
-		"click": (event, template) ->
+		"click input, click audio": (event, template) ->
 			template.$ "input"
 			.prop "checked", true
+		
+		"click .btn-delete": (event, template)->
+			Meteor.call "deleteScream", Session.get("clientID"), template.data._id
+			return false
 
 Template.home_record_submit.events
 

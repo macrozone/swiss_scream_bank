@@ -1,7 +1,22 @@
 @import '../../lib/mixins';
+#flashWami
+	{
+		height: 0px;
+		overflow: hidden;
+		&.waiting
+		{
+			display: block;
+			height:auto;
+			& > div
+			{
+				position: relative !important;
+			}
+		}
+	}
+
 #record
 {
-	
+
 	.btn
 	{
 		font-size: 18px;
@@ -90,7 +105,12 @@
 				padding: 0px;
 				margin: 0px;
 
-
+				.btn-delete
+				{
+					font-size: 14px;
+					width: auto;
+					padding: 3px 12px;
+				}
 
 				li
 				{

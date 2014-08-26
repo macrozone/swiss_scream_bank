@@ -31,6 +31,13 @@ Meteor.startup ->
 
 		[screams, files]
 
+	Meteor.publish "totalScreams", (params = {}) ->
+		Meteor.publishCounter
+			handle: this
+			name: 'totalScreams'
+			collection: Screams
+			filter: params
+
 
 	update =->
 			true
@@ -65,7 +72,8 @@ Meteor.startup ->
 	Meteor.methods
 		removeTempFiles: (clientID) ->
 			ScreamFiles.remove clientID: clientID
-
+		deleteScream: (clientID, screamID) ->
+			ScreamFiles.remove _id: screamID, clientID: clientID
 
 	request = Npm.require("request");
 
