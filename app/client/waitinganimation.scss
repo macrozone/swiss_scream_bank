@@ -1,0 +1,43 @@
+@import 'lib/mixins';
+@include keyframe(bounce-circle){
+  0% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 1;
+    background-color: #111;
+  }
+  100% {
+    opacity:0.3;
+
+  }
+}
+
+.waitingAnimation {
+  width: 69px;
+  .circle{
+    background-color:#CCC;
+    float:left;
+    height:15px;
+    margin-left:8px;
+    width:15px;
+    border-radius:10px;
+    @include animation(0s, 1.5s, bounce-circle);
+    @include animation-direction(linear);
+    @include animation-iteration-count(infinite);
+    opacity:0.3;
+  }
+  .circle-1{
+   @include animation-delay(.3s);
+
+ }
+ .circle-2{
+  @include animation-delay(.7s);
+}
+.circle-3{
+  @include animation-delay(.9s);
+}
+
+
+
+}

@@ -1,8 +1,42 @@
 @import 'lib/mixins';
+
+$text-color: #3A3A3A;
+
+body {
+
+
+  font-family: 'Roboto', Arial, Verdana, Helvetica, sans-serif;
+  font-size: 15px;
+  color: $text-color;
+
+}
+
+
 h3
 {
   font-size: 18px;
   font-weight: bold;
+}
+
+h2
+{
+  margin-top: 20px;
+  margin-bottom: 30px;
+}
+
+
+
+a {
+  color: #666;
+ &:link
+ {
+  text-decoration: underline;
+ }
+  &:hover
+  {
+   
+    color: $text-color;
+  }
 }
 
 .btn
@@ -11,75 +45,98 @@ h3
   border-radius: 74px !important;
 }
 
-.row
-{
-  clear: both;
-}
-
 h4
 {
   font-size: 100%;
   font-weight: normal;
-  display: table-cell;
-  padding-bottom: 4px;
-  
 
-  border-bottom: 2px solid white;
-  &:after{
-
-    content: "";
-    width: 100%;
-    display: table-cell;
-
-  }
+  text-decoration: underline;
 }
-@include keyframe(bounce-circle){
-  0% {
-    opacity: 0.3;
-  }
-  50% {
-    opacity: 1;
-    background-color: #111;
-  }
-  100% {
-    opacity:0.3;
 
-  }
-}
-.totalScreams
+
+.logo
 {
   position: relative;
-  top: -30px;
-  font-size: 12px;
-
-}
-
-.waitingAnimation {
-  width: 69px;
-  .circle{
-    background-color:#CCC;
-    float:left;
-    height:15px;
-    margin-left:8px;
-    width:15px;
-    border-radius:10px;
-    @include animation(0s, 1.5s, bounce-circle);
-    @include animation-direction(linear);
-    @include animation-iteration-count(infinite);
-    opacity:0.3;
+  margin: 0 auto;
+  width: 280px;
+  img
+  {
+    width: 100%;
   }
-  .circle-1{
-   @include animation-delay(.3s);
 
- }
- .circle-2{
-  @include animation-delay(.7s);
+  .totalScreams
+  {
+    position: absolute;
+    bottom: 10px;
+    font-size: 12px;
+    right: 110px;
+
+
+  }
 }
-.circle-3{
-  @include animation-delay(.9s);
+
+.title-with-image
+{
+  text-align: center;
+  img
+  {
+    max-width: 100%;
+    max-height: 38px;
+  }
+
+}
+
+.column-centered
+{
+  margin: 0 auto;
 }
 
 
 
+.centre, .info, .media {
+  text-align: center;
+  font-family: 'Roboto';
 }
+
+.info {
+  margin-top : 100px;
+  margin-bottom: 50px;
+}
+
+#what, #partners, #infos
+{
+  margin-top: 80px;
+}
+
+#what
+{
+  .number
+  {
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+  }
+}
+
+#partners
+{
+  text-align: center;
+  img.partner {
+  max-width: 100%;
+}
+}
+
+
+
+#ssb p {
+  text-align:justify;
+}
+
+
+.clear { 
+  clear: both; 
+  height: 0; 
+  overflow: hidden; 
+}
+
 

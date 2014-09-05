@@ -1,39 +1,43 @@
 @import '../../lib/mixins';
 #flashWami
+{
+
+
+
+	& > div
 	{
-		
-		
-		
+		z-index: -10;
+	}
+	&.waiting
+	{
+
+
 		& > div
 		{
-			z-index: -10;
-		}
-		&.waiting
-		{
-			
-			
-			& > div
-			{
-				z-index: 10;
-				position: relative !important;
-			}
+			z-index: 10;
+			position: relative !important;
 		}
 	}
+}
 
 #record
 {
 
 	.btn
 	{
+
 		font-size: 18px;
 		text-transform: uppercase;;
-		background-color: white;
-		color: #333333;
+	
+
+
 		&:hover
 		{
-			background-color: #C0C0C0;
+		
 			text-decoration: underline;
 		}
+
+	
 		width: 240px;
 		margin: 0 auto;
 		

@@ -8,9 +8,9 @@
 	
 	<form class="submit-form form-horizontal" role="form">
 	<div class="form-group">
-	<label class="col-sm-4 control-label" for="recorder-selection">Your recorded screams, chose <strong>one</strong> to submit:</label>
+	<label class="col-sm-3 control-label" for="recorder-selection">Your recorded screams, chose <strong>one</strong> to submit:</label>
 	
-		<ul class="screams col-sm-8">
+		<ul class="screams col-sm-9">
 			{{#each screamAttemps}}
 			{{> home_record_submit_oneScream}}
 			{{/each}}
@@ -37,7 +37,7 @@
 		<div class="col-sm-4">
 		</div>
 		<div class="col-sm-8">
-		<button class="btn btn-submit">Submit your Scream!</button>
+		<button class="btn btn-submit btn-default">Submit your Scream!</button>
 		</div>
 	</form>
 	{{/if}}
@@ -51,7 +51,7 @@
 
 	<audio controls src="{{url}}"></audio>
 
-	<button class="btn btn-delete"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+	<button class="btn btn-default btn-delete"><span class="glyphicon glyphicon-remove"></span> Delete</button>
 
 	</li>
 </template>

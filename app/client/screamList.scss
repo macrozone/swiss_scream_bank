@@ -1,9 +1,12 @@
 .screamList
 {
+	text-align: center;
 	clear: both;
-
+	margin: 0px;
+	padding: 0px;
 	li
 	{
+		list-style-type: none;
 		margin-bottom: 12px;
 	}
 }
