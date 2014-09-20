@@ -1,9 +1,9 @@
 jsRecorder = null
 STOP_DELAY = MAX_SCREAMS_IN_LIST = Meteor.settings?.public?.STOP_DELAY ? 600
-Session.setDefault "clientID", Meteor.uuid()
-Session.setTemporary "recording", false
-Session.setTemporary "waitingForAudioCheck", true
-Session.setTemporary "hasUserMediaSupport", false
+Session.setDefaultPersistent "clientID", Meteor.uuid()
+Session.setTemp "recording", false
+Session.setTemp "waitingForAudioCheck", true
+Session.setTemp "hasUserMediaSupport", false
 
 
 tryFlashAudio = ->
@@ -12,16 +12,16 @@ tryFlashAudio = ->
 		id: "flashWami"
 		onReady: ->
 			
-			Session.setTemporary "waitingForAudioCheck", false
-			Session.setTemporary "hasUserMediaSupport", true
-			Session.setTemporary "recorder", "flash"
+			Session.setTemp "waitingForAudioCheck", false
+			Session.setTemp "hasUserMediaSupport", true
+			Session.setTemp "recorder", "flash"
 
 Template.home_record_recorder.rendered = ->
 
-	Session.setTemporary "waitingForAudioCheck", true
-	Session.setTemporary "hasUserMediaSupport", false
-	Session.setTemporary "recording", false
-	Session.setTemporary "recorder", ""
+	Session.setTemp "waitingForAudioCheck", true
+	Session.setTemp "hasUserMediaSupport", false
+	Session.setTemp "recording", false
+	Session.setTemp "recorder", ""
 	
 	#webkit shim
 	window.AudioContext = window.AudioContext || window.webkitAudioContext || window.mozAudioContext;
@@ -30,8 +30,8 @@ Template.home_record_recorder.rendered = ->
 	audioContext = new AudioContext;
 	
 	onError = (error) ->
-		Session.setTemporary "waitingForAudioCheck", false
-		Session.setTemporary "hasUserMediaSupport", false
+		Session.setTemp "waitingForAudioCheck", false
+		Session.setTemp "hasUserMediaSupport", false
 		
 	onAudioAvailable = (stream) ->
 		#by set the stream as global variable 
@@ -42,9 +42,9 @@ Template.home_record_recorder.rendered = ->
 			bufferLen: 4096 # default 4096
 			#sampleRate: 2000
 
-		Session.setTemporary "waitingForAudioCheck", false
-		Session.setTemporary "hasUserMediaSupport", true
-		Session.setTemporary "recorder", "js"
+		Session.setTemp "waitingForAudioCheck", false
+		Session.setTemp "hasUserMediaSupport", true
+		Session.setTemp "recorder", "js"
 
 	if navigator?.getUserMedia?
 
@@ -67,6 +67,7 @@ saveScreamBlob = (blob, source, done) ->
 
 	file = new FS.File blob
 	file.source = source
+	file.type "audio/wav"
 	file.clientID = Session.get "clientID"
 	unless file.name()?.length > 0
 		file.name "record.wav"
@@ -115,7 +116,7 @@ Template.home_record_recorder.events
 
 	"click .btn-record": (event)->
 		recording = Session.get "recording"
-		Session.setTemporary "recording", !recording
+		Session.setTemp "recording", !recording
 		if recording
 			_.delay stopRecording, STOP_DELAY
 		else

@@ -9,6 +9,8 @@
 
 if Meteor.isClient
 	Meteor.startup ->
+	
+
 		AccountsEntry.config
 			showSignupCode: true
 			dashboardRoute: '/admin'  

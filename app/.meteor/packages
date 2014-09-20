@@ -4,20 +4,17 @@
 # but you can also edit it by hand.
 
 standard-app-packages
-iron-router
+fourseven:scss
+mrt:smart-publish
+joshowens:accounts-entry
+u2622:persistent-session
+mrt:moment
+iron:router
+cfs:standard-packages
+cfs:filesystem
+digilord:roles
+mizzao:bootstrap-3
 coffeescript
-bootstrap-3
-moment
-cfs-filesystem
-collectionFS
-spiderable
-accounts-base
-accounts-password
-roles
-accounts-entry
-accounts-ui-bootstrap-3
-accounts-admin-ui-bootstrap-3
-cfs-ejson-file
-smart-publish
-scss
-persistent-session
+cfs:ejson-file
+ian:accounts-ui-bootstrap-3
+

@@ -1,5 +1,6 @@
 MAX_SCREAMS_IN_LIST = Meteor.settings?.public?.MAX_SCREAMS_IN_LIST ? 10
 # client collection for totalScreams
+
 ScreamCount = new Meteor.Collection "totalScreams"
 Router.map ->
 	@route 'home', 
