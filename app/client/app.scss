@@ -8,9 +8,7 @@ body {
   font-family: 'Roboto', Arial, Verdana, Helvetica, sans-serif;
   font-size: 15px;
   color: $text-color;
-
 }
-
 
 h3
 {
@@ -28,13 +26,13 @@ h2
 
 a {
   color: #666;
- &:link
- {
-  text-decoration: underline;
- }
+  &:link
+  {
+    text-decoration: underline;
+  }
   &:hover
   {
-   
+
     color: $text-color;
   }
 }
@@ -51,6 +49,15 @@ h4
   font-weight: normal;
 
   text-decoration: underline;
+}
+
+
+.sections
+{
+  .section:nth-child(odd)
+  {
+    background-color: #eee;
+  }
 }
 
 
@@ -122,8 +129,8 @@ h4
 {
   text-align: center;
   img.partner {
-  max-width: 100%;
-}
+    max-width: 100%;
+  }
 }
 
 

@@ -10,9 +10,8 @@ Router.map ->
 			navigation: [
 				(link: "#rec", label: "REC")
 				(link: "#what", label: "WHAT")
-				
-				(link: "#infos", label: "INFOS")
 				(link: "#partners", label: "PARTNERS")
+				(link: "#infos", label: "INFOS")
 			]
 
 			screams: Screams.find {}, 

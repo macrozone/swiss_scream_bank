@@ -53,10 +53,25 @@ Template.home_record_recorder.rendered = ->
 		tryFlashAudio()
 
 
-Template.home_record_recorder.waitingForAudioCheck = ->
-	Session.get "waitingForAudioCheck"
-Template.home_record_recorder.hasUserMediaSupport = ->
-	Session.get "hasUserMediaSupport"
+Template.home_record_recorder.helpers
+	waitingForAudioCheck: -> Session.get "waitingForAudioCheck"
+	hasUserMediaSupport: -> Session.get "hasUserMediaSupport"
+	buttonLabel: -> if Session.get "recording" then "Stop" else "Record"
+	glyphicon: -> if Session.get "recording" then "glyphicon-stop" else "glyphicon-record"
+
+Template.home_record_recorder.events
+	"change .audioFileInput": (event) ->
+		for file in event.target.files
+			saveScreamBlob file, "upload", (error, file)->
+				console.log "done"
+
+	"click .btn-record": (event)->
+		recording = Session.get "recording"
+		Session.setTemp "recording", !recording
+		if recording
+			_.delay stopRecording, STOP_DELAY
+		else
+			startRecording()
 
 
 handleError = (error) ->
@@ -108,22 +123,6 @@ stopRecordingJs = ->
 			unless error?
 				jsRecorder?.clear()
 
-Template.home_record_recorder.events
-	"change .audioFileInput": (event) ->
-		for file in event.target.files
-			saveScreamBlob file, "upload", (error, file)->
-				console.log "done"
 
-	"click .btn-record": (event)->
-		recording = Session.get "recording"
-		Session.setTemp "recording", !recording
-		if recording
-			_.delay stopRecording, STOP_DELAY
-		else
-			startRecording()
 
-Template.home_record_recorder.buttonLabel = ->
-	if Session.get "recording" then "Stop" else "Record"
 
-Template.home_record_recorder.glyphicon = ->
-	if Session.get "recording" then "glyphicon-stop" else "glyphicon-record"

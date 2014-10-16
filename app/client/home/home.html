@@ -1,6 +1,6 @@
 
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,500' rel='stylesheet' type='text/css'>
 	
 	<link rel='stylesheet' type='text/css' href='http://fonts.googleapis.com/css?family=ABeeZee:regular:latin'>
@@ -9,159 +9,16 @@
 
 <template name="home">
 
-	<div class="container">
-	 
+	<div class="home sections">
+
 		{{>home_navigation}}
 
+		{{>home_section_rec}}
+		{{>home_section_what}}
+		{{>home_section_partners}}
+		{{>home_section_infos}}
 
 
-
-		<div class="logo">
-			
-			<img src="/images/logo.png" alt="SSB">
-			<div class="totalScreams"><strong>{{numberOfScreams}}</strong> Screams in Database</div>
-
+	
 		</div>
-
-
-		<div class="row" id="rec">
-			<div class="col-xs-12">
-				
-				
-				<p>
-					<h4> We want to hear you scream</h4>
-					<strong>FR </strong>
-					L'Institut international de l'étude du cri établit un panorama des cris suisses. Nous voulons vous entendre crier et écouter les histoires et évocations qui se rapportent à ce cri. 
-				</p>
-				<p>
-					<strong>EN</strong>
-					The International Institute for Screamscape Studies has initiated a research into the Swiss screamscape. We want to hear you scream and we are interested to the stories related to your scream.
-				</p>
-				<p>
-					<strong> DE </strong>
-					Das Internationale Institut zur Forschung des Schreis erstellt eine Datenbank der Schweizer Schreie. Wir möchten Sie schreien hören und die Geschichten erfahren, die diese Schreie wachrufen oder auslösen.
-					<br/><br/>
-				</p>
-			</div>
-
-		</div>
-
-
-
-
-		<div class="row">
-			<div class="col-xs-12">
-			 <div class="recorder">
-				{{>home_record}}
-				
-				
-			</div>
-		</div>
-	</div>
-	<div class="row">
-		<div class="col-xs-12">
-			<h4>Latest {{maxScreams}} screams</h4>
-			
-			{{>screamList}}
-		</div>
-	</div>
-	<div id="what">
-		<div class="row" >
-
-			<h2 class="title-with-image">
-				<img src="images/comment.png" alt="Titre what are we doing"/>
-			</h2>
-			
-		</div>
-		<div class="row">
-			<div class="col-xs-12 what">
-				<p class="centre">
-				 En 1628, Berne est la première ville à s’attaquer aux nuisances sonores par la publication d’un Arrêté interdisant les chansons et les cris                    dans les rues et les maisons les jours de fêtes religieuses. Cette loi étonnante et innovante pour l'époque sert de prétexte à la                         Kunsthalle Fribourg qui invite les chercheurs 
-				 <strong>Thibault Walter</strong> et <strong>Gregory Whitehead</strong> à mener une vaste recherche artistique et scientifique - sur le mode d'une académie fluxus -  autour du cri en Suisse, <strong>le Swiss Screamscape</strong><br /><br /><br /></p>
-			 </div>
-		 </div>
-		 <div class="row">
-			<div class="col-sm-4">
-				<img class="number" src="images/mains1.png" alt="Etape 1 du processus"/>
-				<h3>Du 01.08.2014 au 31.12.2014</h3>
-				<p>
-					En 2014, Fri Art collecte des cris dans tout le pays afin de constituer une banque de cris: la Swiss Scream Bank.<br />
-					Participez vous aussi en enregistrant votre cri en ligne ou via la ligne téléphonique.
-				</p>
-			</div>
-			<div class="col-sm-4">
-				<img class="number" src="images/cible.png" alt="Etape 2 du processus"/>
-				<h3>Du 01.01.2015 au 31.04.2015</h3>
-				<p>
-					En janvier 2015, la collection de cris et de récits de la Swiss Scream Bank est mise à la disposition d'artistes, musiciens, chercheurs et scientifiques. Ils pourront l'utiliser librement.
-				</p>
-			</div>
-			<div class="col-sm-4">
-				<img class="number" src="images/choixCoeur.png" alt="Etape 3 du processus"/>
-				<h3>Mai 2015</h3>
-				<p>
-					En mai 2015, l’institut devient une expérimentation dans un format ouvert. Les musiciens et chercheurs invités passent quelques jours en résidence à Fri Art pour présenter les résultats de leurs créations et les poursuivre collectivement. Au programme: concerts, conférences, tables rondes, performances, films, repas, fêtes.
-				</p>
-			</div>
-		</div>
-	</div>
-	<div id="partners" >
-		<div class="row">
-			
-			<h2 class="title-with-image">
-				<img src="images/contact.png" alt="Partners"/> 
-			</h2>
-			
-		</div>      
-		<img class="partner" src="images/partners.png" alt="Photo"/>
-	</div>
-	<div id="infos">
-	<div class="row">
-	 
-		<h2 class="title-with-image">
-			<img src="images/info.png" alt="Infos"/>
-		</h2>
-		
-		<div class="col-sm-4">
-		 
-			<h3>Recherche bénévoles</h3>
-			<p>
-				Vous voulez nous aider à réunir des cris ? Contactez la personne responsable du projet Sylvain Menetrey au +41(0)26 323 23 51.
-			</p>
-		</div>
-		<div class="col-sm-4">
-			
-			<h3>Nous suivre</h3>
-			<p>
-			 Nous sommes présents sur les réseaux sociaux, n'hésitez pas à nous suivre sur <a href="https://www.facebook.com/pages/Fri-Art-Centre-dart-de-Fribourg-Kunsthalle-Freiburg/101362696093?fref=ts" target="_blank">Facebook</a> &amp;
-			 <a href="http://fri-art.tumblr.com/" target="_blank">Tumblr</a>
-		 </p>
-	 </div>
-	 <div class="col-sm-4">
-		<h3>Fri Art</h3>
-		<p>
-		
-			Petites-Rames 22<br/>
-			Case postale 582<br />
-			CH &mdash; 1701 Fribourg <br />
-
-			T +41(0)26 323 23 51<br />
-			F +41(0)26 323 15 34<br />
-
-			<a href="mailto:info@fri-art.ch">info@fri-art.ch</a><br />
-			<a href="http://www.fri-art.ch/" target="_blank">www.fri-art.ch</a>
-		</p>
-	</div>
-</div>
-
-
-<div class="row">
-	<div class="col-xs-12 info">
-	 <a href="http://www.fri-art.ch/" target="_blank"><img src="images/fri-art.png" alt="logo fri-art"/></a><br/>
-	 <em>Fri Art is a leading venue for contemporary art in Switzerland. It’s an open laboratory for the exploration of contemporary innovative cultures, visual, sound or digital. Fri Art is respected internationally for the adventurousness and large scope of its curatorial program.</em>
-	 
- </div>
- </div>
-</div>
-</div>
-</template>
+	</template>

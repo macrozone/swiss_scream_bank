@@ -1,7 +1,7 @@
 
 	
-Template.home_record_submit.screamAttemps = ->
-	ScreamFiles.find clientID: Session.get "clientID"
+Template.home_record_submit.helpers
+	screamAttemps:-> ScreamFiles.find clientID: Session.get "clientID"
 
 Template.home_record_submit_oneScream.events
 		"click input, click audio": (event, template) ->
