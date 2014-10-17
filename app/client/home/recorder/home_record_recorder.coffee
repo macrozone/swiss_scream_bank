@@ -7,14 +7,14 @@ Session.setTemp "hasUserMediaSupport", false
 
 
 tryFlashAudio = ->
-
+	Session.setTemp "recorder", "flash"
 	Wami.setup
 		id: "flashWami"
 		onReady: ->
 			
 			Session.setTemp "waitingForAudioCheck", false
 			Session.setTemp "hasUserMediaSupport", true
-			Session.setTemp "recorder", "flash"
+			
 
 Template.home_record_recorder.rendered = ->
 
@@ -44,16 +44,17 @@ Template.home_record_recorder.rendered = ->
 
 		Session.setTemp "waitingForAudioCheck", false
 		Session.setTemp "hasUserMediaSupport", true
-		Session.setTemp "recorder", "js"
+		
 
 	if navigator?.getUserMedia?
-
+		Session.setTemp "recorder", "js"
 		navigator.getUserMedia {audio: true}, onAudioAvailable, onError
 	else 
 		tryFlashAudio()
 
 
 Template.home_record_recorder.helpers
+	recorderType: -> Session.get "recorder"
 	waitingForAudioCheck: -> Session.get "waitingForAudioCheck"
 	hasUserMediaSupport: -> Session.get "hasUserMediaSupport"
 	buttonLabel: -> if Session.get "recording" then "Stop" else "Record"

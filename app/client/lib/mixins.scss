@@ -67,6 +67,18 @@
   
 }
 
+@mixin transform ($transform) {
+    -ms-transform: $transform;
+    -webkit-transform: $transform;
+   
+    -moz-transform: $transform;
+   
+    -o-transform: $transform;
+   
+    transform: $transform;
+  
+}
+
 
 @mixin animation-delay ($delay) {
     -webkit-animation-delay: $delay;

@@ -1,0 +1,39 @@
+	
+
+@import '../../lib/mixins';
+@include keyframe(up-and-down){
+	0% {
+		@include transform(translateY(-10px));
+	}
+
+	
+
+	100% {
+		@include transform(translateY(10px));
+
+	}
+}
+
+
+
+.record-hint
+{
+	@include animation(0s, .5s,up-and-down);
+	@include animation-direction(alternate);
+	@include animation-iteration-count(infinite);
+	
+	font-size: 90px;
+	color: #C73232;
+	text-shadow: 2px 2px 8px #999;
+	z-index: 100;
+	display: block;
+	&.js
+	{
+		position: fixed;
+		top: 25px;
+		right: 30px;
+		
+	}
+
+
+}

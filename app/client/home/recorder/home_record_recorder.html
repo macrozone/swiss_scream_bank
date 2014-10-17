@@ -1,34 +1,43 @@
 
 <template name="home_record_recorder">
-	<div id="flashWami" class="{{#if waitingForAudioCheck}}waiting{{/if}}"></div>
 
-	<a class="btn-record btn btn-danger btn-lg {{#if hasUserMediaSupport}}{{else}}disabled{{/if}}">
+	
+	
+	
+		
+	<div id="flashWami" class="{{#if waitingForAudioCheck}}waiting{{/if}}">
 
-		<span class="glyphicon {{glyphicon}}"></span> 
-		{{buttonLabel}}
-	</a>
+	</div>
+
 	{{#if waitingForAudioCheck}}
-	
-	<p class="waiting">Waiting for audio... <br/>(please click on accept / zulassen above)</p>
-	
-	{{>waitingAnimation}}
-	{{else}}
-	{{#if hasUserMediaSupport}}
-
-	
-	<p class="or"><span>Or</span></p>
-
-	{{else}}
-	<p class="no-audio-available">Your Browser can't record audio directly or you denied access to the microphone, but you can upload a file here:</p>
-
-
+		{{>record_hint class=recorderType}}
 	{{/if}}
+
+		<a class="btn-record btn btn-danger btn-lg {{#if hasUserMediaSupport}}{{else}}disabled{{/if}}">
+			<span class="glyphicon {{glyphicon}}"></span> {{buttonLabel}}
+		</a>
+		{{#if waitingForAudioCheck}}
+		
+			<p class="waiting">Waiting for audio... <br/>(please click on accept / zulassen above)</p>
+			{{>waitingAnimation}}
+
+		{{else}}
+			{{#if hasUserMediaSupport}}
+
+				<p class="or"><span>Or</span></p>
+
+			{{else}}
+				<p class="no-audio-available">Your Browser can't record audio directly or you denied access to the microphone, but you can upload a file here:</p>
+
+
+		{{/if}}
 	{{/if}}
 
 	{{>home_record_button_upload}}
 
 	<p class="or"><span>Or</span></p>
-	<p><a class="btn btn-lg btn-default" href="tel:+41263214617"><span class="glyphicon glyphicon-earphone"></span> +41263214617</a></p>
+	<p><a class="btn btn-lg btn-default" href="tel:+41263214617">
+		<span class="glyphicon glyphicon-earphone"></span> +41263214617</a></p>
 </template>
 
 
@@ -41,4 +50,10 @@
 
 		<input class="audioFileInput" type="file" accept="audio/*" capture="microphone">
 	</div>
+</template>
+
+
+
+<template name="record_hint">
+	<div class="record-hint glyphicon glyphicon-arrow-up {{class}}" ></div>
 </template>

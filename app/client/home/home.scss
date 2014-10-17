@@ -1,0 +1,117 @@
+
+.home
+{
+	h1,h2
+	{
+		text-align: center;
+	}
+
+
+	.section
+	{
+		overflow: auto;
+		padding: 40px 0px;
+
+		overflow: hidden;
+		&:nth-child(odd)
+		{
+			position: relative;
+			/* append a shadow container to it */
+			&:after
+			{
+				background-color: #FCFCFC;
+
+				position: absolute;
+				box-shadow: inset 0px 0px 8px #9C9C9C;
+				top: 0px;
+				left: -10px;
+				right: -10px;
+				bottom: 0px;
+				content: "";
+				z-index: -1;
+			}
+		}
+
+
+	}
+
+	#infos
+	{
+		margin-bottom: 80px;
+	}
+
+
+
+	.logo
+	{
+		position: relative;
+		margin: 0 auto;
+		width: 320px;
+		img
+		{
+			width: 100%;
+		}
+
+		.totalScreams
+		{
+			position: absolute;
+			bottom: 20px;
+			font-size: 12px;
+			right: 130px;
+
+
+		}
+	}
+
+
+	.column-centered
+	{
+		margin: 0 auto;
+	}
+
+
+
+	.centre, .info, .media {
+		text-align: center;
+		font-family: 'Roboto';
+	}
+
+
+
+
+	#what
+	{
+		.number
+		{
+			display: block;
+			margin: 0 auto;
+			width: 80px;
+			height: 80px;
+			border-radius: 50%;
+			
+			border: 2px solid #9C9C9C;
+			text-align: center;
+			color: #3A3A3A;
+			font-family: 'scream', Helvetica, sans-serif;
+			font-size: 40px;
+			padding-top: 12px;
+
+
+		}
+	}
+
+	#partners
+	{
+		text-align: center;
+		img.partner {
+			max-width: 100%;
+		}
+	}
+
+
+
+	#ssb p {
+		text-align:justify;
+	}
+
+}

@@ -28,3 +28,5 @@ Template.home_navigation.rendered = ->
 		$(window).scrollTo href, 400
 
 
+UI.registerHelper "equals", (a, b) -> a is b
+  
