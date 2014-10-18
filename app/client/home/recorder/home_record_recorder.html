@@ -8,18 +8,29 @@
 	<div id="flashWami" class="{{#if waitingForAudioCheck}}waiting{{/if}}">
 
 	</div>
+{{#if waitingForAudioCheck}}
+{{#if equals recorderType "flash"}}
+			{{>record_hint class="flash"}}
+{{/if}}
+{{/if}}
 
-	{{#if waitingForAudioCheck}}
-		{{>record_hint class=recorderType}}
-	{{/if}}
 
 		<a class="btn-record btn btn-danger btn-lg {{#if hasUserMediaSupport}}{{else}}disabled{{/if}}">
 			<span class="glyphicon {{glyphicon}}"></span> {{buttonLabel}}
 		</a>
 		{{#if waitingForAudioCheck}}
-		
+		{{#if equals recorderType "js"}}
+				{{>record_hint class="js-left"}}
+				
+			{{/if}}
 			<p class="waiting">Waiting for audio... <br/>(please click on accept / zulassen above)</p>
 			{{>waitingAnimation}}
+		{{#if equals recorderType "js"}}
+				{{>record_hint class="js-right"}}
+				
+			{{/if}}
+			
+
 
 		{{else}}
 			{{#if hasUserMediaSupport}}
