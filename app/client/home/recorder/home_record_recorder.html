@@ -1,24 +1,28 @@
 
 <template name="home_record_recorder">
-
 	
-	
-	
-		
-	<div id="flashWami" class="{{#if waitingForAudioCheck}}waiting{{/if}}">
-
-	</div>
-{{#if waitingForAudioCheck}}
-{{#if equals recorderType "flash"}}
-			{{>record_hint class="flash"}}
-{{/if}}
-{{/if}}
-
-
-		<a class="btn-record btn btn-danger btn-lg {{#if hasUserMediaSupport}}{{else}}disabled{{/if}}">
+		<div id="flashWami" class="{{#if waitingForAudioCheck}}waiting{{/if}}"></div>
+	{{#if notInitialized}}
+	<a class="btn-record-initial btn btn-danger btn-lg">
 			<span class="glyphicon {{glyphicon}}"></span> {{buttonLabel}}
 		</a>
-		{{#if waitingForAudioCheck}}
+			<p class="or"><span>Or</span></p>
+	{{else}}
+
+
+
+	{{#if waitingForAudioCheck}}
+		{{#if equals recorderType "flash"}}
+			{{>record_hint class="flash"}}
+		{{/if}}
+	{{/if}}
+
+
+	<a class="btn-record btn btn-danger btn-lg {{#if hasUserMediaSupport}}{{else}}disabled{{/if}}">
+			<span class="glyphicon {{glyphicon}}"></span> {{buttonLabel}}
+	</a>
+		
+	{{#if waitingForAudioCheck}}
 		{{#if equals recorderType "js"}}
 				{{>record_hint class="js-left"}}
 				
@@ -43,6 +47,7 @@
 
 		{{/if}}
 	{{/if}}
+		{{/if}}
 
 	{{>home_record_button_upload}}
 

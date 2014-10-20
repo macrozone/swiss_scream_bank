@@ -16,8 +16,12 @@ tryFlashAudio = ->
 			Session.setTemp "hasUserMediaSupport", true
 			
 
-Template.home_record_recorder.rendered = ->
 
+Template.home_record_recorder.rendered = ->
+	Session.setTemp "isInitialized", false
+
+initAudio = ->
+	Session.setTemp "isInitialized", true
 	Session.setTemp "waitingForAudioCheck", true
 	Session.setTemp "hasUserMediaSupport", false
 	Session.setTemp "recording", false
@@ -32,6 +36,7 @@ Template.home_record_recorder.rendered = ->
 	onError = (error) ->
 		Session.setTemp "waitingForAudioCheck", false
 		Session.setTemp "hasUserMediaSupport", false
+		
 		
 	onAudioAvailable = (stream) ->
 		#by set the stream as global variable 
@@ -54,6 +59,7 @@ Template.home_record_recorder.rendered = ->
 
 
 Template.home_record_recorder.helpers
+	notInitialized: -> not Session.get "isInitialized"
 	recorderType: -> Session.get "recorder"
 	waitingForAudioCheck: -> Session.get "waitingForAudioCheck"
 	hasUserMediaSupport: -> Session.get "hasUserMediaSupport"
@@ -65,6 +71,8 @@ Template.home_record_recorder.events
 		for file in event.target.files
 			saveScreamBlob file, "upload", (error, file)->
 				console.log "done"
+
+	"click .btn-record-initial": initAudio
 
 	"click .btn-record": (event)->
 		recording = Session.get "recording"

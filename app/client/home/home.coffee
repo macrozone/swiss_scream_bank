@@ -1,4 +1,5 @@
 MAX_SCREAMS_IN_LIST = Meteor.settings?.public?.MAX_SCREAMS_IN_LIST ? 10
+SCREAMS_COUNT_OFFSET = Meteor.settings?.public?.SCREAMS_COUNT_OFFSET ? 0
 # client collection for totalScreams
 
 ScreamCount = new Meteor.Collection "totalScreams"
@@ -18,7 +19,7 @@ Router.map ->
 				sort: itime: -1
 				limit: MAX_SCREAMS_IN_LIST
 			maxScreams: MAX_SCREAMS_IN_LIST
-			numberOfScreams: ScreamCount.findOne()?.count
+			numberOfScreams: SCREAMS_COUNT_OFFSET+ScreamCount.findOne()?.count
 
 Template.home_navigation.rendered = ->
 	@$ "li a"
