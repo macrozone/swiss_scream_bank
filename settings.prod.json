@@ -1,6 +1,7 @@
 {
 	"public": {
 		"MAX_SCREAMS_IN_LIST": 10,
+		"SCREAMS_COUNT_OFFSET": 100,
 		"STOP_DELAY": 600
 	}
 
