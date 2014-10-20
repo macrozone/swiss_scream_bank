@@ -19,7 +19,7 @@ Router.map ->
 				sort: itime: -1
 				limit: MAX_SCREAMS_IN_LIST
 			maxScreams: MAX_SCREAMS_IN_LIST
-			numberOfScreams: SCREAMS_COUNT_OFFSET+ScreamCount.findOne()?.count
+			numberOfScreams: SCREAMS_COUNT_OFFSET+parseInt(ScreamCount.findOne()?.count,10)
 
 Template.home_navigation.rendered = ->
 	@$ "li a"
