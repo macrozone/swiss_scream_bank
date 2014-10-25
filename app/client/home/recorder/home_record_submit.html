@@ -5,12 +5,13 @@
 	<p>Thank you!</p>
 	</div>
 	{{#if screamAttemps.count}}
-	
 	<form class="submit-form form-horizontal" role="form">
-	<div class="form-group">
-	<label class="col-sm-3 control-label" for="recorder-selection">Your recorded screams, chose <strong>one</strong> to submit:</label>
+	<h3>you can now submit your recorded scream!</h3>
 	
-		<ul class="screams col-sm-9">
+	<div class="form-group">
+	<label class="col-sm-4 control-label" for="recorder-selection">Chose <strong>one</strong> to submit:</label>
+	
+		<ul class="screams col-sm-8">
 			{{#each screamAttemps}}
 			{{> home_record_submit_oneScream}}
 			{{/each}}
@@ -34,11 +35,9 @@
 				<textarea class="message form-control" id="recorder-message" placeholder="message" rows="5"></textarea>
 			</div> 
 		</div>
-		<div class="col-sm-4">
-		</div>
-		<div class="col-sm-8">
-		<button class="btn btn-submit btn-default">Submit your Scream!</button>
-		</div>
+		
+		<button class="btn btn-submit btn-danger">Submit your Scream!</button>
+		
 	</form>
 	{{/if}}
 	</div>

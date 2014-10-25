@@ -17,17 +17,32 @@
 		{{/if}}
 	{{/if}}
 
-
+	{{#if recording}}
+	<div class="recording-overlay">
+	<div class="content">
+	<p>SCREAM AND SHOUT!</p>
+	{{>waitingAnimation}}
 	<a class="btn-record btn btn-danger btn-lg {{#if hasUserMediaSupport}}{{else}}disabled{{/if}}">
 			<span class="glyphicon {{glyphicon}}"></span> {{buttonLabel}}
 	</a>
+	</div>
+</div>
+{{else}}
+<a class="btn-record btn btn-danger btn-lg {{#if hasUserMediaSupport}}{{else}}disabled{{/if}}">
+			<span class="glyphicon {{glyphicon}}"></span> {{buttonLabel}}
+	</a>
+
+	{{/if}}
+	
+
+
 		
 	{{#if waitingForAudioCheck}}
 		{{#if equals recorderType "js"}}
 				{{>record_hint class="js-left"}}
 				
 			{{/if}}
-			<p class="waiting">Waiting for audio... <br/>(please click on accept / zulassen above)</p>
+			<p class="waiting">Waiting for audio... <br/>(please click on allow / partager / zulassen above)</p>
 			{{>waitingAnimation}}
 		{{#if equals recorderType "js"}}
 				{{>record_hint class="js-right"}}

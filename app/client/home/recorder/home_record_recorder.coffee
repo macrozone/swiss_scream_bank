@@ -64,6 +64,7 @@ Template.home_record_recorder.helpers
 	waitingForAudioCheck: -> Session.get "waitingForAudioCheck"
 	hasUserMediaSupport: -> Session.get "hasUserMediaSupport"
 	buttonLabel: -> if Session.get "recording" then "Stop" else "Record"
+	recording: -> Session.get "recording"
 	glyphicon: -> if Session.get "recording" then "glyphicon-stop" else "glyphicon-record"
 
 Template.home_record_recorder.events
