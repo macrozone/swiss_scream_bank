@@ -31,13 +31,13 @@
 				z-index: -1;
 			}
 		}
-		&.tagboard
-	{
-		&:after
+		&#tagboard
 		{
-			background-color: #F3F3F3;
+			&:after
+			{
+				background-color: #F3F3F3;
+			}
 		}
-	}
 
 	}
 	

@@ -13,6 +13,7 @@ Router.map ->
 				(link: "#what", label: "WHAT")
 				(link: "#partners", label: "PARTNERS")
 				(link: "#infos", label: "INFOS")
+				(link: "#tagboard", label: "TAGBOARD")
 			]
 
 			screams: Screams.find {}, 
