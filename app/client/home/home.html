@@ -8,17 +8,30 @@
 </head>
 
 <template name="home">
-
+	
+	{{>home_navigation}}
 	<div class="home sections">
+	
+	
 
-		{{>home_navigation}}
 		{{>home_section_intro}}
 		{{>home_section_rec}}
 		{{>home_section_what}}
 		{{>home_section_partners}}
 		{{>home_section_infos}}
+		{{>tag_board}}
 
 
-	
-		</div>
-	</template>
+	</div>
+
+</template>
+
+
+
+
+<template name="tag_board">
+	<div class="section tagboard">
+	<h2>Tagboard</h2>
+	<div id="tagboard-embed"></div>
+	</div>
+</template>

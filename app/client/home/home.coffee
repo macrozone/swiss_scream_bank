@@ -31,3 +31,5 @@ Template.home_navigation.rendered = ->
 
 UI.registerHelper "equals", (a, b) -> a is b
   
+Template.tag_board.rendered = ->
+	$('head').append '<script>var tagboardOptions = {tagboard:"SCREAMSWISS/188458", fixedHeight:false};</script><script src="https://tagboard.com/public/js/embed.js"></script>'

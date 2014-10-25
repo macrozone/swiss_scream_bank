@@ -13,7 +13,7 @@
 		padding: 40px 0px;
 
 		overflow: hidden;
-		&:nth-child(odd)
+		&:nth-child(even)
 		{
 			position: relative;
 			/* append a shadow container to it */
@@ -31,13 +31,25 @@
 				z-index: -1;
 			}
 		}
-
+		&.tagboard
+	{
+		&:after
+		{
+			background-color: #F3F3F3;
+		}
+	}
 
 	}
+	
 
 	#infos
 	{
-		margin-bottom: 80px;
+		
+		.friart
+		{
+			margin-top: 40px;
+			margin-bottom: 40px;
+		}
 	}
 
 
