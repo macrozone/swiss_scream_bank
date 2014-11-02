@@ -6,12 +6,19 @@
 		text-align: left;
 		li
 		{
+			
 			border-bottom: 1px dashed #333;
 			table
 			{
+				td, th
+				{
+					vertical-align: top;
+				}
+				min-height: 300px;
 				th{
 					padding-right: 12px;
-					text-align: right;
+					text-align: left;
+					
 				}
 				margin-bottom: 12px;
 			}
