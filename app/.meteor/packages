@@ -5,7 +5,6 @@
 
 standard-app-packages
 fourseven:scss
-mrt:smart-publish
 joshowens:accounts-entry
 u2622:persistent-session
 mrt:moment
@@ -17,4 +16,7 @@ mizzao:bootstrap-3
 coffeescript
 cfs:ejson-file
 ian:accounts-ui-bootstrap-3
+mrt:smart-publish
+mrt:accounts-admin-ui-bootstrap-3
+alanning:roles
 

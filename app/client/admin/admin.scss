@@ -1,0 +1,28 @@
+.admin
+{
+	
+	.screamList
+	{
+		text-align: left;
+		li
+		{
+			border-bottom: 1px dashed #333;
+			table
+			{
+				th{
+					padding-right: 12px;
+					text-align: right;
+				}
+				margin-bottom: 12px;
+			}
+			padding-top: 24px;
+			padding-bottom: 24px;
+
+			.actions
+			{
+				padding-top: 12px;
+			}
+		}
+
+	}
+}

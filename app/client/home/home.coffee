@@ -6,14 +6,17 @@ ScreamCount = new Meteor.Collection "totalScreams"
 Router.map ->
 	@route 'home', 
 		path: '/'
-		waitOn: -> [Meteor.subscribe "latestScreams", Meteor.subscribe "totalScreams"]
+		subscriptions: -> [
+			Meteor.subscribe "latestScreams",
+			Meteor.subscribe "totalScreams"
+		]
 		data: ->
 			navigation: [
 				(link: "#rec", label: "REC")
 				(link: "#what", label: "WHAT")
 				(link: "#partners", label: "PARTNERS")
 				(link: "#infos", label: "INFOS")
-				(link: "#tagboard", label: "TAGBOARD")
+				(link: "#videos", label: "VIDEOS")
 			]
 
 			screams: Screams.find {}, 
@@ -32,5 +35,3 @@ Template.home_navigation.rendered = ->
 
 UI.registerHelper "equals", (a, b) -> a is b
   
-Template.tag_board.rendered = ->
-	$('head').append '<script>var tagboardOptions = {tagboard:"SCREAMSWISS/188458", fixedHeight:false};</script><script src="https://tagboard.com/public/js/embed.js"></script>'

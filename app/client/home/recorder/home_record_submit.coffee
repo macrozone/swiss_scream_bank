@@ -9,12 +9,13 @@ Template.home_record_submit_oneScream.events
 			.prop "checked", true
 		
 		"click .btn-delete": (event, template)->
-			Meteor.call "deleteScream", Session.get("clientID"), template.data._id
+			Meteor.call "deleteScreamFile", Session.get("clientID"), template.data._id
 			return false
 
 Template.home_record_submit.events
 
-	"click .btn-submit": (event, template)->
+	"submit": (event, template)->
+		event.preventDefault()
 		selectedFileID = template.$("input[name='selection']:checked").val()
 		$message = template.$ "textarea" 
 		$email = template.$ "[name='email']"

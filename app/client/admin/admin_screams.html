@@ -1,6 +1,6 @@
 <template name="admin_screams">
 <h1>All Screams</h1>
-
+<h3>Sorted by date (top is newest)</h3>
 	<ul class="screamList">
 		{{#each screams}}
 		{{>admin_aScream}}
@@ -9,9 +9,19 @@
 </template>
 
 <template name="admin_aScream">
-	<li class="col-sm-6">{{formatDate itime "long"}}<br/>
-	source: {{{source}}}<br/>
-	message: {{message}}<br />
-	email: {{email}}<br/>
-	<audio controls src="{{file.url}}"></audio></li>
+	<li class="col-xs-12 col-sm-6 col-md-4">
+	<strong>{{formatDate itime "long"}}</strong>
+<table>
+<tr><th>source:</th><td>{{{source}}}</td></tr>
+<tr><th>message:</th><td>{{message}}</td></tr>
+<tr><th>email:</th><td>{{email}}</td></tr>
+</table>
+<audio controls src="{{file.url}}"></audio>
+	<div class="actions">
+		<a class="btn btn-default btn-download" target="_blank" href="{{file.url download=true}}"><span class="glyphicon glyphicon-download"></span> Download</a>
+		<button class="btn btn-delete btn-danger"><span class="glyphicon glyphicon-remove"></span> Delete</button>
+		
+	</div>
+</li>
+
 </template>

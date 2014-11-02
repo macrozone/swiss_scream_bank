@@ -1,10 +1,7 @@
 MAX_SCREAMS_IN_LIST = Meteor.settings?.public?.MAX_SCREAMS_IN_LIST ? 10
 
-
 isAdmin = (userID) ->
 	Roles.userIsInRole(userID, ['admin'])
-
-
 
 Meteor.startup ->
 	AccountsEntry.config
@@ -46,7 +43,7 @@ Meteor.startup ->
 	remove = (userID, doc) ->
 			 if isAdmin userID
 			 	return true
-			 console.log doc
+			 
 			 return false
 
 
@@ -72,13 +69,19 @@ Meteor.startup ->
 	Meteor.methods
 		removeTempFiles: (clientID) ->
 			ScreamFiles.remove clientID: clientID
-		deleteScream: (clientID, screamID) ->
+		deleteScreamFile: (clientID, screamID) ->
 			ScreamFiles.remove _id: screamID, clientID: clientID
+		deleteScream: (screamID) ->
 
-	request = Npm.require("request");
-
+			unless isAdmin @userId
+				throw new Meteor.Error 403
+			scream = Screams.findOne _id: screamID
+			if scream?
+				ScreamFiles.remove _id: scream.file?._id
+				Screams.remove _id: screamID
 
 # server side route to store recordings from flash (Wami)
+	request = Npm.require("request");
 
 	Router.map ->
 		@route "api-record", 
