@@ -106,5 +106,5 @@ Meteor.startup ->
 						result = ScreamFiles.insert file
 						
 						@response.writeHead 200, {'Content-Type': 'application/json'}
-						@response.end('hello from server');
+						@response.end('');
 

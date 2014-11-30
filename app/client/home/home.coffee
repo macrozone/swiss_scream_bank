@@ -18,6 +18,12 @@ Router.map ->
 				(link: "#infos", label: "INFOS")
 				(link: "#videos", label: "VIDEOS")
 			]
+			socialLinks: [
+				(icon: "images/facebook.png", url: i18n "urls.facebook")
+				(icon: "images/twitter.png", url: i18n "urls.twitter")
+				(icon: "images/instagram.png", url: i18n "urls.instagram")
+				(icon: "images/tumblr.png", url: i18n "urls.tumblr")
+			]
 
 			screams: Screams.find {}, 
 				sort: itime: -1
@@ -25,13 +31,12 @@ Router.map ->
 			maxScreams: MAX_SCREAMS_IN_LIST
 			numberOfScreams: SCREAMS_COUNT_OFFSET+parseInt(ScreamCount.findOne()?.count,10)
 
-Template.home_navigation.rendered = ->
-	@$ "li a"
+Template.home_header.rendered = ->
+	@$ ".nav li a"
 	.on "click", (event) ->
 		
 		href = $(@).attr "href"
 		$(window).scrollTo href, 400
 
 
-UI.registerHelper "equals", (a, b) -> a is b
-  
+Template.registerHelper "equals", (a, b) -> a is b

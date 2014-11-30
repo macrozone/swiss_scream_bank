@@ -1,0 +1,21 @@
+<template name="home_header">
+<div id="header">
+<ul class="socialLinks">
+{{#each socialLinks}}
+	<li><a target="_blank" href="{{url}}"><img src="{{icon}}" /></a></li>
+{{/each}}
+
+</ul>
+
+ <ul class="nav" role="navigation">
+   {{#each navigation}}
+   <li><a href="{{link}}">{{label}}</a></li>
+   {{/each}}
+ </ul>
+
+
+</div>
+
+</template>
+
+

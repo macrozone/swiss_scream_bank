@@ -1,54 +1,53 @@
 
 <template name="home_record_recorder">
 	
-		<div id="flashWami" class="{{#if waitingForAudioCheck}}waiting{{/if}}"></div>
+	<div id="flashWami" class="{{#if waitingForAudioCheck}}waiting{{/if}}"></div>
 	{{#if notInitialized}}
-	<a class="btn-record-initial btn btn-danger btn-lg">
+		<a class="btn-record-initial btn btn-danger btn-lg">
 			<span class="glyphicon {{glyphicon}}"></span> {{buttonLabel}}
 		</a>
-			<p class="or"><span>Or</span></p>
+		<p class="or"><span>Or</span></p>
 	{{else}}
 
 
 
-	{{#if waitingForAudioCheck}}
-		{{#if equals recorderType "flash"}}
-			{{>record_hint class="flash"}}
+		{{#if waitingForAudioCheck}}
+			{{#if equals recorderType "flash"}}
+				{{>record_hint class="flash"}}
+			{{/if}}
 		{{/if}}
-	{{/if}}
 
-	{{#if recording}}
-	<div class="recording-overlay">
-	<div class="content">
-	<p>SCREAM AND SHOUT!</p>
-	{{>waitingAnimation}}
-	<a class="btn-record btn btn-danger btn-lg {{#if hasUserMediaSupport}}{{else}}disabled{{/if}}">
-			<span class="glyphicon {{glyphicon}}"></span> {{buttonLabel}}
-	</a>
-	</div>
-</div>
-{{else}}
-<a class="btn-record btn btn-danger btn-lg {{#if hasUserMediaSupport}}{{else}}disabled{{/if}}">
-			<span class="glyphicon {{glyphicon}}"></span> {{buttonLabel}}
-	</a>
+		{{#if recording}}
+			<div class="recording-overlay">
+				<div class="content">
+					<p>SCREAM AND SHOUT!</p>
+					{{>waitingAnimation}}
+					<a class="btn-record btn btn-danger btn-lg {{#if hasUserMediaSupport}}{{else}}disabled{{/if}}">
+							<span class="glyphicon {{glyphicon}}"></span> {{buttonLabel}}
+					</a>
+				</div>
+			</div>
+		{{else}}
+			<a class="btn-record btn btn-danger btn-lg {{#if hasUserMediaSupport}}{{else}}disabled{{/if}}">
+				<span class="glyphicon {{glyphicon}}"></span> {{buttonLabel}}
+			</a>
 
-	{{/if}}
-	
-
-
+		{{/if}}
 		
-	{{#if waitingForAudioCheck}}
-		{{#if equals recorderType "js"}}
+
+			
+		{{#if waitingForAudioCheck}}
+			{{#if equals recorderType "js"}}
 				{{>record_hint class="js-left"}}
-				
+					
 			{{/if}}
 			<p class="waiting">Waiting for audio... <br/>(please click on allow / partager / zulassen above)</p>
 			{{>waitingAnimation}}
-		{{#if equals recorderType "js"}}
-				{{>record_hint class="js-right"}}
-				
-			{{/if}}
 			
+			{{#if equals recorderType "js"}}
+				{{>record_hint class="js-right"}}
+			{{/if}}
+				
 
 
 		{{else}}
@@ -60,15 +59,15 @@
 				<p class="no-audio-available">Your Browser can't record audio directly or you denied access to the microphone, but you can upload a file here:</p>
 
 
+			{{/if}}
 		{{/if}}
 	{{/if}}
-		{{/if}}
 
 	{{>home_record_button_upload}}
 
 	<p class="or"><span>Or</span></p>
 	<p><a class="btn btn-lg btn-default" href="tel:+41263214617">
-		<span class="glyphicon glyphicon-earphone"></span> +41263214617</a></p>
+		<span class="glyphicon glyphicon-earphone"></span>  026 321 46 17</a></p>
 </template>
 
 
